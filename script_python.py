@@ -3,9 +3,18 @@ import json
 import time
 import matplotlib.pyplot as plt
 import numpy as np
+import sys
+
+crypto = "" # Nom de la crypto dont on fait
+borne1 = 0
+borne2 = 0
 
 
-crypto = "PPC"
+
+
+
+
+
 data_base = []
 adresses = []
 nbTx = []
@@ -15,6 +24,32 @@ class Account:
     adress = ""
     solde = 0
     nbTx = 0
+
+
+
+
+def afficherMenu():
+    quitter = 0
+    while (not(quitter)):
+        print("Etudier une cryptomonnaie --> 1\n")
+        print("Cryptomonnaies a etudier disponibles --> 2\n")
+        print("Aide --> 3\n")
+        print("Quitter --> 4\n")
+
+        choix = input()
+        if (choix == "1"):
+            getStats()
+        if (choix == "2"):
+            print("A venir ... Aller voir sur le site https://www.coinexplorer.net")
+        if (choix == "3"):
+            print("Ce programme permet de faire des statistiques sur une cryptomonnaie et de faire un graphique qui représente le nombre d'occurence d'une adresses sur les x transactions étudiées")
+        if (choix == "4"):
+            quitter = 1
+
+
+
+
+
 
 
 def addEntry (adr_elem, solde_elem):
@@ -52,8 +87,8 @@ def getHashTx(id):
     txList = json.loads(result.text)
 
     time.sleep(delay)
-
-    for i in range (0, len(txList["result"]["tx"])):
+    size =len(txList["result"]["tx"])
+    for i in range (0, size):
         getTxInfo(txList["result"]["tx"][i])
         time.sleep(delay)
 
@@ -61,10 +96,17 @@ def getHashTx(id):
 
 
 
-def getStats(taille):
-    for i in range (1, taille + 1):
+def getStats():
+    global crypto, borne1, borne2
+    crypto = input("Entrer la cryptomonnaie a etudier\n") # Nom de la crypto dont on fait
+    borne1 = int(input("Entrer la première borne de la plage a etudier\n"))
+    borne2 = int(input("Entrer la seconde borne de la plage a etudier\n"))
+
+    for i in range (borne1, borne2 + 1):
         getHashTx(i)
 
+    print(len(data_base))
+    afficherGraphique()
 
 def readFile():
     f = open("D:\Documents\Etudes\Projet_Pascal\logs.txt", "r")
@@ -77,36 +119,33 @@ def readFile():
         addEntry(ligne[0],float(ligne[1]))
 
 
-f = open("D:\Documents\Etudes\Projet_Pascal\logs.txt", "w")
-getStats(1000)
-print(len(data_base))
-f.close()
 
+def afficherGraphique():
+    fig = plt.figure()
+
+    for i in range (0, len(data_base)):
+        adresses.append(i)
+        nbTx.append(data_base[i].nbTx)
+
+
+
+
+    width = 0.25
+    plt.xticks(np.arange(min(adresses), max(adresses) + 1, 1.0))
+
+
+    plt.bar(range(len(data_base)), nbTx, width, color ='b')
+    plt.show()
+
+
+f = open("D:\Documents\Etudes\Projet_Pascal\logs.txt", "w")
+afficherMenu()
+f.close()
 # readFile()
 
 
 
-f.close()
 
 
-
-
-
-
-fig = plt.figure()
-
-for i in range (0, len(data_base)):
-    adresses.append(i)
-    nbTx.append(data_base[i].nbTx)
-
-
-
-
-width = 0.25
-plt.xticks(np.arange(min(adresses), max(adresses) + 1, 1.0))
-
-
-plt.bar(range(len(data_base)), nbTx, width, color ='b')
-plt.show()
 
 
