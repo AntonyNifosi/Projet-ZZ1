@@ -4,15 +4,15 @@ Projet de première année ISIMA, Bouchut Florian et Nifosi Antony
 ## Utilisation du script Python (optimisé :) !!!)
 Si l'on souhaite utilier le scrypt Python il suffit de suivre ce petit tutoriel pour installer Python3 ainsi que les modules complémentaires necessaires au lancement du script :
 
-Installer Python 3.6 Mac  
+**Installer Python 3.6 Mac** 
 
-brew install python3 //Permet d'installer python 3  
+**brew install python3** //Permet d'installer python 3  
 
-pip3 install request // Permet d'installer le module request  
+**pip3 install request** // Permet d'installer le module request  
 
-pip3 install matploblib // Permet d'installer le module matploblib  
+**pip3 install matploblib** // Permet d'installer le module matploblib  
 
-python3 script_python.py // Permet de lancer le script  
+**python3 script_python.py** // Permet de lancer le script  
 
 A la fin de l'exécution du script un fichier log est créé qui contient chaque adresse ainsi que le montant de la transaction. 
 
