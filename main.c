@@ -40,7 +40,7 @@ int main()
 {
     int i, j;
     int size = 0;
-    FILE *f = fopen("logs_tx2.log", "r");
+    FILE *f = fopen("logs_tx.log", "r");
     FILE *f2 = fopen("results.txt", "w");
 
     struct transaction tr[1000];
@@ -56,6 +56,12 @@ int main()
         tr[i].value = 0;
     }
 
+	for (j = 0; j < 8; j++) /* On supprime les lignes d'entetes qui ne servent a rien */
+	{
+		memset(ligne, 0, 1000);
+        fgets(ligne, 1000, f);
+	}
+	
     for (i = 0; i < 1000; i++)
     {
         for (j = 0; j < 17; j++)
@@ -64,7 +70,7 @@ int main()
             fgets(ligne, 1000, f);
         }
 
-        /* On choppe les thunes */
+        /* On choppe les valeurs */
 
         sscanf(ligne, "                 value: %f,", &val);
        

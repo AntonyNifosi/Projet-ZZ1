@@ -25,7 +25,7 @@ function pausecomp(millis)
 
 function getStats()
 {
-	console.log("Ca va tout péter lolll")
+	console.log("Lancemet du script ...")
 	for (var i = 1; i < 1000; i++)
 	{
 		getHashTx(i);
@@ -34,7 +34,7 @@ function getStats()
 
 function getHashTx(id)
 {
-	console.log("On chope les hash des tx : " + id)
+	console.log("On recupere les hash des tx : " + id)
 		
 	var result = request("https://www.coinexplorer.net/api/v1/PPC/block?height="+id)	
 	var txList = JSON.parse(result)
@@ -54,7 +54,7 @@ function getHashTx(id)
 
 function getTxInfo(hash)
 {
-	console.log("On chope les infos des tx : " + hash) 
+	console.log("On recupere les infos des tx : " + hash) 
 	var info = request("https://www.coinexplorer.net/api/v1/PPC/transaction?txid="+hash)
 	console.log(info)	
 }
@@ -62,22 +62,3 @@ function getTxInfo(hash)
 
 getStats()
 
-
-
-// request.onload = function () 
-// {
-	// console.log("SUCCES")
-	// var type = request.response
-	
-	// console.log(type)
-
-	// var json = JSON.parse(type)
-	// console.log(json.result.tx.length)
-
-// }
-
-
-
-
-// // Send request
-// request.send()

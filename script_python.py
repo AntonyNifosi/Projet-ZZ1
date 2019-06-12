@@ -6,19 +6,16 @@ import numpy as np
 import sys
 
 crypto = "" # Nom de la crypto dont on fait
-borne1 = 0
-borne2 = 0
-
-
-
-
+borne1 = 0 # Borne inferieure de la plage de recherche
+borne2 = 0 # Borne superieure de la plage de recherche
+f = 0 # Fichier contenant les logs
 
 
 
 data_base = []
 adresses = []
 nbTx = []
-delay = 0 # Respecter les 1 seconde pour le délai sauf si on est un THUG !!!!
+delay = 1 # Respecter les 1 seconde pour le délai
 
 class Account:
     adress = ""
@@ -31,18 +28,20 @@ class Account:
 def afficherMenu():
     quitter = 0
     while (not(quitter)):
-        print("Etudier une cryptomonnaie --> 1\n")
-        print("Cryptomonnaies a etudier disponibles --> 2\n")
-        print("Aide --> 3\n")
-        print("Quitter --> 4\n")
+        print ("--------------------------------- .: MENU :. ---------------------------------\n")
+        print(" Etudier une cryptomonnaie --> 1\n")
+        print(" Cryptomonnaies a etudier disponibles --> 2\n")
+        print(" Aide --> 3\n")
+        print(" Quitter --> 4\n")
+        print("-------------------------------------------------------------------------------\n")
 
         choix = input()
         if (choix == "1"):
             getStats()
         if (choix == "2"):
-            print("A venir ... Aller voir sur le site https://www.coinexplorer.net")
+            print("A venir ... Aller voir sur le site https://www.coinexplorer.net\n")
         if (choix == "3"):
-            print("Ce programme permet de faire des statistiques sur une cryptomonnaie et de faire un graphique qui représente le nombre d'occurence d'une adresses sur les x transactions étudiées")
+            print("Ce programme permet de faire des statistiques sur une cryptomonnaie et de faire un graphique qui représente le nombre d'occurence d'une adresse sur les x transactions étudiees.\nDe plus un fichier texte logs_+nomdelacrypto.txt contient tous les logs des requetes effectuees avec l'API\n")
         if (choix == "4"):
             quitter = 1
 
@@ -73,7 +72,7 @@ def addEntry (adr_elem, solde_elem):
 
 
 def getTxInfo(hash):
-    print("SALUT : " + hash)
+    print("HASH : " + hash)
     info = requests.get("https://www.coinexplorer.net/api/v1/"+crypto+"/transaction?txid="+str(hash))
     tx  = json.loads(info.text)
     addEntry(tx["result"]["vout"][0]["scriptPubKey"]["addresses"][0], tx["result"]["vout"][0]["value"])
@@ -97,16 +96,18 @@ def getHashTx(id):
 
 
 def getStats():
-    global crypto, borne1, borne2
+    global crypto, borne1, borne2, f
     crypto = input("Entrer la cryptomonnaie a etudier\n") # Nom de la crypto dont on fait
     borne1 = int(input("Entrer la première borne de la plage a etudier\n"))
     borne2 = int(input("Entrer la seconde borne de la plage a etudier\n"))
+    f = open("D:\Documents\Etudes\Projet_Pascal\logs_"+crypto+".txt", "w")
 
     for i in range (borne1, borne2 + 1):
         getHashTx(i)
 
     print(len(data_base))
     afficherGraphique()
+    f.close()
 
 def readFile():
     f = open("D:\Documents\Etudes\Projet_Pascal\logs.txt", "r")
@@ -138,10 +139,9 @@ def afficherGraphique():
     plt.show()
 
 
-f = open("D:\Documents\Etudes\Projet_Pascal\logs.txt", "w")
+
 afficherMenu()
-f.close()
-# readFile()
+#readFile()
 
 
 
