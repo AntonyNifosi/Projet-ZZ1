@@ -58,8 +58,8 @@ int main()
 
 	for (j = 0; j < 8; j++) /* On supprime les lignes d'entetes qui ne servent a rien */
 	{
-		memset(ligne, 0, 1000);
-        fgets(ligne, 1000, f);
+	    memset(ligne, 0, 1000);
+            fgets(ligne, 1000, f);
 	}
 	
     for (i = 0; i < 1000; i++)
