@@ -72,7 +72,7 @@ int main()
 
         /* On choppe les valeurs */
 
-        sscanf(ligne, "                 value: %f,", &val);
+        sscanf(ligne, "                 \"value\": %f,", &val);
        
 
         for (j = 0; j < 8; j++)
