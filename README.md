@@ -21,7 +21,7 @@ Le graphique représente le nombre d'occurrence d'une adresse sur les x premièr
 PS : Comme expliqué l'APi utilisée est limitée à une requête par seconde mais on peut mettre la variable delay dans le programme Python à 0 cela semble aller à la vitesse maximum autorisée par l'API et qui est supérieure à une requète toutes les secondes.
 
 ## Utilisation du script JS + du programme C (pas optimisé :( !!!)
-Si l'on souhaite utiliser le script JS il suffit de le lancer dans un navigateur dans Chrome par exemple et une fois le script éxécuté saubegarder la console (clique droit "Save as" dans Google Chrome et appelait le fichier "logs_tx.log".
+Si l'on souhaite utiliser le script JS il suffit de le lancer dans un navigateur dans Chrome par exemple et une fois le script exécuté sauvegarder la console (clique droit "Save as" dans Google Chrome et appelait le fichier "logs_tx.log".
 
 Ensuite il suffit de lancer le programme C qui va lire le fichier logs_tx.log et écrire les résultats dans un fichier result.txt sous la forme "occurence,gains_totaux,"
 
