@@ -15,7 +15,7 @@ f = 0 # Fichier contenant les logs
 data_base = []
 adresses = []
 nbTx = []
-delay = 1 # Respecter les 1 seconde pour le délai
+delay = 0 # Respecter les 1 seconde pour le délai
 
 class Account:
     adress = ""
@@ -38,15 +38,15 @@ def afficherMenu():
         choix = input()
         if (choix == "1"):
             getStats()
+
         if (choix == "2"):
-            print("A venir ... Aller voir sur le site https://www.coinexplorer.net\n")
+            print("Exemple des cryptomonnais disponibles (les 10 premières)\n\nLitecoin -> LTC\nDash -> DASH\nZCoin -> XZC\nNPay Network -> NPAY\nPIVX -> PIV\nVertcoin -> VTC\nElercoin -> EMC\nPeercoin -> PPC\nFeathercoin -> FTC\nBitGreen -> BITG\n\nAller voir sur le site https://www.coinexplorer.net\ pour voir toutes les cryptomonnais disponnibles\n")
+
         if (choix == "3"):
             print("Ce programme permet de faire des statistiques sur une cryptomonnaie et de faire un graphique qui représente le nombre d'occurence d'une adresse sur les x transactions étudiees.\nDe plus un fichier texte logs_+nomdelacrypto.txt contient tous les logs des requetes effectuees avec l'API\n")
+
         if (choix == "4"):
             quitter = 1
-
-
-
 
 
 
@@ -100,7 +100,7 @@ def getStats():
     crypto = input("Entrer la cryptomonnaie a etudier\n") # Nom de la crypto dont on fait
     borne1 = int(input("Entrer la première borne de la plage a etudier\n"))
     borne2 = int(input("Entrer la seconde borne de la plage a etudier\n"))
-    f = open("D:\Documents\Etudes\Projet_Pascal\logs_"+crypto+".txt", "w")
+    f = open("./logs_"+crypto+".txt", "w") # <----- Penser à mettre le chemin ou l'on souhaite avoir le fichier des resultats
 
     for i in range (borne1, borne2 + 1):
         getHashTx(i)
@@ -110,7 +110,7 @@ def getStats():
     f.close()
 
 def readFile():
-    f = open("D:\Documents\Etudes\Projet_Pascal\logs.txt", "r")
+    f = open("./logs.txt", "r")
     lignes = f.readlines()
 
 
