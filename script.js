@@ -2,9 +2,10 @@
 var request1 = new XMLHttpRequest()
 var request2 = new XMLHttpRequest()
 
-function request(url) {
+function request(url) {	
     const req = new XMLHttpRequest();
-    req.open('GET', url, false); 
+	
+    req.open('GET', url, false);
     req.send(null);
     if (req.status === 200) {
         return req.responseText;
@@ -36,7 +37,7 @@ function getHashTx(id)
 {
 	console.log("On recupere les hash des tx : " + id)
 		
-	var result = request("https://www.coinexplorer.net/api/v1/PPC/block?height="+id)	
+	var result = request("https://cors.io/?https://www.coinexplorer.net/api/v1/PPC/block?height="+id)	
 	var txList = JSON.parse(result)
 	
 	pausecomp(1001)
@@ -55,10 +56,9 @@ function getHashTx(id)
 function getTxInfo(hash)
 {
 	console.log("On recupere les infos des tx : " + hash) 
-	var info = request("https://www.coinexplorer.net/api/v1/PPC/transaction?txid="+hash)
+	var info = request("https://cors.io/?https://www.coinexplorer.net/api/v1/PPC/transaction?txid="+hash)
 	console.log(info)	
 }
 
 
 getStats()
-
