@@ -101,7 +101,7 @@ def getStats():
     crypto = input("Entrer la cryptomonnaie a etudier\n") # Nom de la crypto dont on fait les statistiques
     borne1 = int(input("Entrer la première borne de la plage a etudier\n"))
     borne2 = int(input("Entrer la seconde borne de la plage a etudier\n"))
-    f = open("./logs_"+crypto+".txt", "w")
+    f = open("./logs_"+crypto+".txt", "w")  # <----- Penser à mettre le chemin ou l'on souhaite avoir le fichier des resultats
 
     for i in range (borne1, borne2 + 1):
         getHashTx(i)
@@ -111,7 +111,7 @@ def getStats():
     f.close()
 
 def readFile():
-    f = open("./logs_"+crypto+".txt", "r")
+    f = open("./logs_"+crypto+".txt", "r") #Utilisation de cette fonction pour les tests lorsqu'on a deja un fichier log existant
     lignes = f.readlines()
 
 
