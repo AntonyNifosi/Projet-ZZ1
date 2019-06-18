@@ -4,8 +4,12 @@ Projet de première année ISIMA, Bouchut Florian et Nifosi Antony
 ## Structure du GitHub : ##
 
 **logs.txt :** Fichier donner par l'éxécution du programme C
+
 **main.c :** Programme C qui génère un fichier texte importable sous un tableur.
-**script.js :** Programme JavaScript pouvant être lancer dans un navigateur pour récupérer les informations sont les 1000 premières transactions (dans la console du navigateur)
+
+**script.js :** Programme JavaScript pouvant être lancer dans un navigateur pour récupérer les informations sont les 1000 premières
+transactions (dans la console du navigateur)
+
 **script_python.py :** Programme Python pouvant générer un graphique sur les cryptomonnais du site coinexplorer sur la plage souhaitée
 
 ## Utilisation du script Python (optimisé :) !!!)
@@ -29,7 +33,7 @@ Le graphique représente le nombre d'occurrence d'une adresse sur les x premièr
 
 **IMPORTANT 2 :** Bien penser à mettre le chemin où l'on souhaite avoir les résultats du programme dans le code python (ligne 103) de base il ira dans le home directory.
 
-PS : Comme expliqué l'API utilisée est limitée à une requête par seconde mais on peut mettre la variable delay dans le programme Python à 0 cela semble aller à la vitesse maximum autorisée par l'API et qui est supérieure à une requète toutes les secondes.
+PS : Comme expliqué l'API utilisée est limitée à une requête par seconde mais on peut mettre la variable delay dans le programme Python à 0 cela semble faire aller le programme à la vitesse maximum autorisée par l'API, qui est supérieure à une requète toutes les secondes.
 
 ## Utilisation du script JS + du programme C (pas optimisé :( !!!)
 Si l'on souhaite utiliser le script JS il suffit de le lancer dans un navigateur dans Chrome par exemple. Il est important de noter que lors de l'execution du script l'onglet sera "bloqué" tant que le script n'a pas fini d'éxécuter toutes les requètes. Si l'on souhaite voir l'avancement il faut : Ouvrir un nouvel onglet -> ouvrir la console -> et enfin lancer le script.
