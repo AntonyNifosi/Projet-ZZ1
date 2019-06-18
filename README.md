@@ -2,7 +2,7 @@
 Projet de première année ISIMA, Bouchut Florian et Nifosi Antony
 
 ## Utilisation du script Python (optimisé :) !!!)
-Si l'on souhaite utilier le scrypt Python il suffit de suivre ce petit tutoriel pour installer Python3 ainsi que les modules complémentaires necessaires au lancement du script :
+Si l'on souhaite utilier le scrypt Python il suffit de suivre ce petit tutoriel pour installer Python3 ainsi que les modules complémentaires nécessaires au lancement du script :
 
 **Installer Python 3.6 Mac** 
 
@@ -17,6 +17,7 @@ Si l'on souhaite utilier le scrypt Python il suffit de suivre ce petit tutoriel 
 A la fin de l'exécution du script un fichier log est créé qui contient chaque adresse ainsi que le montant de la transaction. 
 
 Le graphique représente le nombre d'occurrence d'une adresse sur les x premières adresses de la monnaie sélectionnée 
+**IMPORTANT :** Ne pas commencer à la première adresse car elle ne correspond pas vraiement à une transaction. Si l'on souhaite faire les 1000 premières transactions mettre la plage (1, 1001) dans le programme.
 
 PS : Comme expliqué l'APi utilisée est limitée à une requête par seconde mais on peut mettre la variable delay dans le programme Python à 0 cela semble aller à la vitesse maximum autorisée par l'API et qui est supérieure à une requète toutes les secondes.
 
