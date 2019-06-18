@@ -15,6 +15,7 @@ f = 0 # Fichier contenant les logs
 data_base = []
 adresses = []
 nbTx = []
+soldeTotal = []
 delay = 0 # Respecter les 1 seconde pour le délai
 
 class Account:
@@ -97,10 +98,10 @@ def getHashTx(id):
 
 def getStats():
     global crypto, borne1, borne2, f
-    crypto = input("Entrer la cryptomonnaie a etudier\n") # Nom de la crypto dont on fait
+    crypto = input("Entrer la cryptomonnaie a etudier\n") # Nom de la crypto dont on fait les statistiques
     borne1 = int(input("Entrer la première borne de la plage a etudier\n"))
     borne2 = int(input("Entrer la seconde borne de la plage a etudier\n"))
-    f = open("./logs_"+crypto+".txt", "w") # <----- Penser à mettre le chemin ou l'on souhaite avoir le fichier des resultats
+    f = open("./logs_"+crypto+".txt", "w")
 
     for i in range (borne1, borne2 + 1):
         getHashTx(i)
@@ -110,13 +111,12 @@ def getStats():
     f.close()
 
 def readFile():
-    f = open("./logs.txt", "r")
+    f = open("./logs_"+crypto+".txt", "r")
     lignes = f.readlines()
 
 
     for ligne in lignes:
         ligne = ligne.split(",")
-        print(ligne)
         addEntry(ligne[0],float(ligne[1]))
 
 
@@ -127,21 +127,27 @@ def afficherGraphique():
     for i in range (0, len(data_base)):
         adresses.append(i)
         nbTx.append(data_base[i].nbTx)
+        soldeTotal.append(data_base[i].solde)
 
 
+    width = 0.35
+    r1 = range(len(data_base))
+    r2 = [x + width for x in r1]
+    plt.xticks(np.arange(min(adresses), max(adresses) + 1, 1))
 
 
-    width = 0.25
-    plt.xticks(np.arange(min(adresses), max(adresses) + 1, 1.0))
+    l1 = plt.bar(r1, nbTx, width, color ='dodgerblue')
+    ax2 = plt.gca().twinx()
+    l2 = plt.bar(r2, soldeTotal, width, color = 'darkorange')
 
+    plt.legend([l1,l2], ['Nombre de transactions', 'Solde total (en '+crypto+')'])
+    plt.title('Nombre de transactions et solde total par adresse')
 
-    plt.bar(range(len(data_base)), nbTx, width, color ='b')
     plt.show()
 
 
 
 afficherMenu()
-#readFile()
 
 
 
