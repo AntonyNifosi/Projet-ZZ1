@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-crypto = "" # Nom de la crypto dont on fait
+crypto = "" # Nom de la crypto dont on fait les statistiques
 borne1 = 0 # Borne inferieure de la plage de recherche
 borne2 = 0 # Borne superieure de la plage de recherche
 f = 0 # Fichier contenant les logs
