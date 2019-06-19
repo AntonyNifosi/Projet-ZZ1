@@ -8,7 +8,7 @@ Projet de première année ISIMA, Bouchut Florian et Nifosi Antony
 **main.c :** Programme C qui génère un fichier texte importable sous un tableur.
 
 **script.js :** Programme JavaScript pouvant être lancer dans un navigateur pour récupérer les informations sont les 1000 premières
-transactions (dans la console du navigateur)
+transactions du Peercoin(dans la console du navigateur)
 
 **script_python.py :** Programme Python pouvant générer un graphique sur les cryptomonnais du site coinexplorer sur la plage souhaitée
 
