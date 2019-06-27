@@ -16,7 +16,7 @@ data_base = []
 adresses = []
 nbTx = []
 soldeTotal = []
-delay = 0 # Respecter les 1 seconde pour le délai
+delay = 1 # Respecter les 1 seconde pour le délai
 
 class Account:
     adress = ""
