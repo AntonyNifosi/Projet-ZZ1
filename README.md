@@ -19,7 +19,7 @@ Si l'on souhaite utilier le scrypt Python il suffit de suivre ce petit tutoriel 
 
 **brew install python3** //Permet d'installer python 3  
 
-**pip3 install request** // Permet d'installer le module request  
+**pip3 install requests** // Permet d'installer le module request  
 
 **pip3 install matplotlib** // Permet d'installer le module matploblib  
 
