@@ -21,7 +21,7 @@ Si l'on souhaite utilier le scrypt Python il suffit de suivre ce petit tutoriel 
 
 **pip3 install request** // Permet d'installer le module request  
 
-**pip3 install matploblib** // Permet d'installer le module matploblib  
+**pip3 install matplotlib** // Permet d'installer le module matploblib  
 
 **python3 script_python.py** // Permet de lancer le script  
 
